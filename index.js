@@ -327,9 +327,23 @@ document.addEventListener('DOMContentLoaded', () => {
         'color-green': '#2e7d32'
       };
 
-      const selectedClass = Array.from(dot.classList).find(c => c.startsWith('color-'));
+      // Corrigindo o bug: ignora a classe geral 'color-dot' para pegar a cor real ('color-yellow', etc.)
+      const selectedClass = Array.from(dot.classList).find(c => c.startsWith('color-') && c !== 'color-dot');
       if (selectedClass && colorMap[selectedClass] && toldoFabric) {
         toldoFabric.style.backgroundColor = colorMap[selectedClass];
+        
+        const simLogo = toldoFabric.querySelector('.sim-toldo-logo');
+        const simArea = document.querySelector('.sim-interactive-area');
+        
+        // Se selecionar lona preta, muda o fundo do simulador para light (para dar contraste) e a logo para dourado
+        if (selectedClass === 'color-black') {
+          if (simArea) simArea.classList.add('sim-light-bg');
+          if (simLogo) simLogo.style.color = '#FFD400';
+        } else {
+          if (simArea) simArea.classList.remove('sim-light-bg');
+          // Para a lona amarela, vermelha ou verde, a logo escura original dá melhor contraste
+          if (simLogo) simLogo.style.color = 'rgba(5, 5, 5, 0.85)';
+        }
       }
     });
   });

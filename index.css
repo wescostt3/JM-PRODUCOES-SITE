@@ -2185,3 +2185,44 @@ footer {
     font-size: 1.8rem;
   }
 }
+
+/* Simulator Light Background Mode (Active when Black Awning is chosen) */
+.sim-interactive-area.sim-light-bg {
+  background: radial-gradient(circle at center, #ececed 0%, #dcdcdf 100%) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sim-interactive-area.sim-light-bg .store-facade {
+  background: linear-gradient(180deg, #fbfbfd 0%, #f0f0f4 100%) !important;
+  border: 2px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: none !important;
+  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.06) !important;
+}
+
+.sim-interactive-area.sim-light-bg .store-door {
+  border: 1px dashed rgba(0, 0, 0, 0.2) !important;
+  background: rgba(0, 0, 0, 0.01) !important;
+}
+
+.sim-interactive-area.sim-light-bg .store-sign {
+  background: #e1e1e6 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+.sim-interactive-area.sim-light-bg .store-sign::after {
+  color: rgba(5, 5, 5, 0.7) !important;
+}
+
+.sim-interactive-area.sim-light-bg .sim-bracket {
+  background: #888 !important;
+}
+
+.sim-interactive-area.sim-light-bg .sim-toldo-bar {
+  background: #444 !important;
+}
+
+.sim-interactive-area.sim-light-bg .sim-toldo-arms {
+  border-left-color: #666 !important;
+  border-right-color: #666 !important;
+}
