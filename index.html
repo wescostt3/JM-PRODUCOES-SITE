@@ -36,7 +36,7 @@
         <li><a href="#contato" class="nav-link">Contato</a></li>
       </ul>
       
-      <a href="#contato" class="cta-button">Solicitar Orçamento</a>
+      <a href="#contato" class="cta-button trigger-budget-modal">Solicitar Orçamento</a>
       
       <button class="nav-toggle" aria-label="Abrir menu de navegação">
         <span></span>
@@ -64,10 +64,22 @@
         <div class="float-element float-2"></div>
         <div class="float-element float-3"></div>
         
-        <div class="hero-glow-card">
-          <img src="portfolio_4.png" alt="JM Produções Logo 3D">
-          <h3>JM Produções</h3>
-          <p>Design & Instalação</p>
+        <div class="hero-video-card">
+          <div class="video-container">
+            <video id="hero-video" loop muted autoplay playsinline poster="portfolio_4.png">
+              <source src="hero-video.mp4" type="video/mp4">
+              Seu navegador não suporta vídeos HTML5.
+            </video>
+            <div class="video-overlay">
+              <button id="video-sound-btn" class="video-control-btn" aria-label="Alternar som">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+              <button id="video-play-btn" class="video-play-overlay-btn" aria-label="Assistir com Som">
+                <span class="play-icon">▶</span>
+                <span class="play-text">Assistir com Som</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -154,7 +166,9 @@
               <!-- Mounting Frame and Fabric -->
               <div class="sim-toldo-container">
                 <div class="sim-toldo-bar"></div>
-                <div class="sim-toldo-fabric"></div>
+                <div class="sim-toldo-fabric">
+                  <div class="sim-toldo-logo">JM PRODUÇÕES</div>
+                </div>
                 <div class="sim-toldo-arms"></div>
               </div>
             </div>
@@ -204,8 +218,12 @@
           <p id="sim-step-desc">Nossa equipe utiliza níveis a laser digitais para marcar com precisão cirúrgica os pontos de fixação estruturais da fachada comercial.</p>
         </div>
         
-        <div style="margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 212, 0, 0.12); height: 110px; background: #0c0c0f;">
-          <img src="toldo_blueprint.png" alt="Esquema Técnico Toldo" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; filter: saturate(0.8);">
+        <div class="blueprint-preview-container reveal" id="open-blueprint-btn" title="Clique para abrir o esquema interativo">
+          <img src="toldo_blueprint.png" alt="Esquema Técnico Toldo">
+          <div class="blueprint-preview-overlay">
+            <i class="fa-solid fa-expand"></i>
+            <span>Esquema Técnico Detalhado</span>
+          </div>
         </div>
         
         <button id="sim-action-btn" class="sim-action-btn btn-play">
@@ -364,66 +382,8 @@
       
       <div class="testimonial-wrapper reveal">
         <span class="quote-icon">“</span>
-        <div class="testimonial-track">
-          <!-- Slide 1 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="testimonial-rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p class="testimonial-text">"A nova fachada e os toldos ficaram fantásticos! Minha loja ganhou um destaque incrível na avenida e a equipe cumpriu o prazo perfeitamente."</p>
-              <div class="testimonial-author">
-                <div class="author-info">
-                  <h4>Carlos Mendonça</h4>
-                  <p>Proprietário da Mecânica CM</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Slide 2 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="testimonial-rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p class="testimonial-text">"Excelente atendimento! O simulador e o projeto 3D ajudaram muito a escolher a cor perfeita. Os toldos retráteis nos ajudam a proteger o salão nos horários mais quentes."</p>
-              <div class="testimonial-author">
-                <div class="author-info">
-                  <h4>Patrícia Alves</h4>
-                  <p>Diretora do Salão Beauty Face</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Slide 3 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-card">
-              <div class="testimonial-rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p class="testimonial-text">"A equipe de instalação é super limpa e rápida. O fechamento lateral da lona ficou impecável e resiste muito bem a ventanias e chuvas."</p>
-              <div class="testimonial-author">
-                <div class="author-info">
-                  <h4>Felipe Rocha</h4>
-                  <p>Fundador da Impacto Academia</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="testimonial-track" id="testimonial-track">
+          <!-- Slides will be injected dynamically via JS -->
         </div>
         
         <div class="carousel-dots"></div>
@@ -518,7 +478,7 @@
         <ul>
           <li style="color: var(--text-muted);">Segunda a Sexta: 08:00h às 18:00h</li>
           <li style="color: var(--text-muted);">Sábado: 08:00h às 12:00h</li>
-          <li><a href="#contato" style="color: var(--accent); font-weight: 600;">Fazer um orçamento</a></li>
+          <li><a href="#contato" class="trigger-budget-modal" style="color: var(--accent); font-weight: 600;">Fazer um orçamento</a></li>
         </ul>
       </div>
     </div>
@@ -545,6 +505,110 @@
   <a href="https://wa.me/5585988091816?text=Ol%C3%A1%20JM%20Produ%C3%A7%C3%B5es!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20minha%20loja." target="_blank" class="whatsapp-float" aria-label="Falar conosco no WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
+
+  <!-- Budget Request Pop-up Modal -->
+  <div id="budget-modal" class="modal budget-modal-overlay">
+    <div class="modal-content budget-modal-card">
+      <button class="modal-close budget-modal-close" aria-label="Fechar Modal">&times;</button>
+      <div class="modal-header">
+        <h2>Solicitar <span class="highlight">Orçamento</span></h2>
+        <p>Preencha os dados e fale conosco diretamente no WhatsApp para receber seu projeto 3D gratuito.</p>
+      </div>
+      <form id="modal-contact-form">
+        <div class="form-group">
+          <input type="text" id="modal-form-name" class="form-input" placeholder=" " required>
+          <label for="modal-form-name" class="form-label">Seu Nome *</label>
+        </div>
+        
+        <div class="form-group">
+          <input type="email" id="modal-form-email" class="form-input" placeholder=" " required>
+          <label for="modal-form-email" class="form-label">E-mail de Contato *</label>
+        </div>
+        
+        <div class="form-group">
+          <input type="tel" id="modal-form-phone" class="form-input" placeholder=" " required>
+          <label for="modal-form-phone" class="form-label">Telefone / WhatsApp *</label>
+        </div>
+        
+        <div class="form-group">
+          <textarea id="modal-form-message" class="form-textarea" placeholder=" " required></textarea>
+          <label for="modal-form-message" class="form-label">Conte-nos sobre o seu projeto... *</label>
+        </div>
+        
+        <button type="submit" class="submit-btn">Enviar Mensagem (Abrir WhatsApp)</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interactive Technical Blueprint Modal -->
+  <div id="blueprint-modal" class="modal blueprint-modal-overlay">
+    <div class="modal-content blueprint-modal-card">
+      <button class="modal-close blueprint-modal-close" aria-label="Fechar especificações">&times;</button>
+      
+      <div class="blueprint-modal-grid">
+        <!-- Visual side -->
+        <div class="blueprint-visual-pane">
+          <div class="blueprint-img-wrapper">
+            <img src="toldo_blueprint.png" alt="Esquema Técnico Toldo" id="zoomable-blueprint-img">
+          </div>
+          <div class="blueprint-hint">
+            <i class="fa-solid fa-circle-info"></i> Passe o cursor sobre os itens para ver as especificações detalhadas do toldo.
+          </div>
+        </div>
+        
+        <!-- Info side -->
+        <div class="blueprint-info-pane">
+          <h2>Especificações <span class="highlight">Técnicas</span></h2>
+          <span class="blueprint-subtitle">Retractable Shop Awning System (Model: A1000-RS)</span>
+          
+          <div class="blueprint-specs-list">
+            <div class="spec-item" data-part="casing">
+              <span class="spec-badge">01</span>
+              <div class="spec-text">
+                <h4>Casing (Estrutura Externa)</h4>
+                <p>Alumínio extrudado 6061-T6 anodizado em preto ou com pintura eletrostática a pó de altíssima durabilidade contra intempéries.</p>
+              </div>
+            </div>
+            <div class="spec-item" data-part="motor">
+              <span class="spec-badge">02</span>
+              <div class="spec-text">
+                <h4>Motorized Gearbox (Motorização)</h4>
+                <p>Motor elétrico tubular embutido Somfy 230V, 50Hz, torque de 3.5Nm e velocidade de 12 RPM com controle remoto.</p>
+              </div>
+            </div>
+            <div class="spec-item" data-part="brackets">
+              <span class="spec-badge">03</span>
+              <div class="spec-text">
+                <h4>Wall Bracket (Suportes de Fixação)</h4>
+                <p>Suportes reforçados de aço carbono de 12mm de espessura chumbados quimicamente com parafusos inoxidáveis.</p>
+              </div>
+            </div>
+            <div class="spec-item" data-part="arms">
+              <span class="spec-badge">04</span>
+              <div class="spec-text">
+                <h4>Support Arms (Braços Articulados)</h4>
+                <p>Braços pantográficos em alumínio com molas duplas de tensão interna de alta capacidade para lona tensionada.</p>
+              </div>
+            </div>
+            <div class="spec-item" data-part="fabric">
+              <span class="spec-badge">05</span>
+              <div class="spec-text">
+                <h4>Fabric Roof (Cobertura de Lona)</h4>
+                <p>Lona náutica acrílica de 350 GSM com proteção contra raios UV, tratamento antimofo e impermeabilização total.</p>
+              </div>
+            </div>
+            <div class="spec-item" data-part="slope">
+              <span class="spec-badge">06</span>
+              <div class="spec-text">
+                <h4>Slope Angle (Ângulo de Inclinação)</h4>
+                <p>Regulagem do ângulo de caimento ajustável de 19° a 45° para excelente vazão de água pluvial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Custom Script -->
   <script src="index.js"></script>
