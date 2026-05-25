@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // CONFIGURAÇÃO CENTRALIZADA DO WHATSAPP
   // ==========================================
   // Altere o número abaixo (apenas números, com DDI + DDD). Exemplo: "5585988091816"
-  const WHATSAPP_NUMBER = "5585988091816";
+  const WHATSAPP_NUMBER = "5585981340267";
   // Formato de exibição legível no site. Exemplo: "(85) 98809-1816"
-  const WHATSAPP_DISPLAY = "(85) 98809-1816";
+  const WHATSAPP_DISPLAY = "(85) 98134-0267";
 
   // Atualiza dinamicamente as referências de contato de WhatsApp na página
   const updateWhatsAppContacts = () => {
